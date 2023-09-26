@@ -13,6 +13,13 @@ let box = document.createElement("div");
 box.style.width = "200px";
 box.style.height = "200px";
 box.style.backgroundColor = "blue";
+box.style.borderRadius = "0%";
 document.body.appendChild(box);
 
-btn.addEventListener("click", function () {});
+btn.addEventListener("click", function () {
+  if (box.style.borderRadius == "0%") {
+    box.style.borderRadius = "50%";
+  } else if (box.style.borderRadius == "50%") {
+    box.style.borderRadius = "0%";
+  }
+});
