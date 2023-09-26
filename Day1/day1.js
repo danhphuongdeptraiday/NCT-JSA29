@@ -72,8 +72,8 @@ let s = "Tú hâm"; // string
 // Tips lấy ra phần tử cuối cùng của mảng: food[food.length - 1]
 // console.log(food[food.length - 1]);
 
-// console.log(food);
 // // push(): thêm phần tử mới vảo mảng
+// console.log(food);
 // food.push("sting đỏ");
 // food.push("sting đỏ");
 // food.push("sting đỏ");
