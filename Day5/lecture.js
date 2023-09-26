@@ -23,3 +23,11 @@ btn.addEventListener("click", function () {
     box.style.borderRadius = "0%";
   }
 });
+
+let input = document.getElementById("input");
+let search_btn = document.getElementById("search");
+console.log(input.value);
+
+search_btn.addEventListener("click", function () {
+  console.log(input.value);
+});
