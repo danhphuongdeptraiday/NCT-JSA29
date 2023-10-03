@@ -25,3 +25,6 @@ let input_value = document.getElementById("inputValue");
 add_btn.addEventListener("click", function () {
   localStorage.setItem(input_key.value, input_value.value);
 });
+
+let t = Object.keys(localStorage);
+console.log(t);
