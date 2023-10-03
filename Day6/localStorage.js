@@ -16,3 +16,12 @@ let btn = document.getElementById("btn");
 btn.addEventListener("click", function () {
   localStorage.clear();
 });
+
+// Add data
+let add_btn = document.getElementById("add_data");
+let input_key = document.getElementById("inputKey");
+let input_value = document.getElementById("inputValue");
+
+add_btn.addEventListener("click", function () {
+  localStorage.setItem(input_key.value, input_value.value);
+});
