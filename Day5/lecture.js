@@ -29,5 +29,5 @@ let search_btn = document.getElementById("search");
 console.log(input.value);
 
 search_btn.addEventListener("click", function () {
-  console.log(input.value);
+  box.innerText = input.value;
 });

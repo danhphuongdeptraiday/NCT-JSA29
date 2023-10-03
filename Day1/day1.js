@@ -104,6 +104,7 @@ let s = "Tú hâm"; // string
 // console.log(person.ex_girlfriends);
 
 //                                              Function: Chức năng(hàm)
+// Mục tiêu: Là dùng để thực thi 1 hành động gì đó
 // Để function chạy được thì mình phại gọi tên nó
 // Kiểu 1: Function không có đầu vào (ko có tham số)
 
