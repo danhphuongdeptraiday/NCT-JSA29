@@ -1,3 +1,4 @@
+let t = Object.keys(localStorage);
 // Lưu dữ liệu vào trong localStorage ta dùng hàm setItem("key", "value")
 localStorage.setItem("name", "Phương");
 
@@ -28,7 +29,6 @@ add_btn.addEventListener("click", function () {
   localStorage.setItem(input_key.value, input_value.value);
 });
 
-let t = Object.keys(localStorage);
 console.log(t);
 console.log(t[0]);
 console.log(t[1]);
@@ -43,4 +43,16 @@ for (let i = 0; i < t.length; i++) {
   li.innerText = t[i];
   container_key.appendChild(li);
   //   console.log(t[i]);
+}
+
+let temp_key = "name";
+let check_find_key = false;
+for (let i = 0; i < t.length; i++) {
+  if (temp_key == t[i]) {
+    check_find_key = true;
+  }
+}
+
+if (check_find_key == false) {
+  alert("Không thấy key");
 }
