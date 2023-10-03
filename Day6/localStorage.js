@@ -11,10 +11,12 @@ console.log(
 // localStorage.removeItem("name");
 
 // Xóa tất cả dữ liệu trong localStorage
-
+let Available_key_input = document.getElementById("Available_Key");
 let btn = document.getElementById("btn");
 btn.addEventListener("click", function () {
   //   localStorage.clear();
+
+  localStorage.removeItem(Available_key_input.value);
 });
 
 // Add data
