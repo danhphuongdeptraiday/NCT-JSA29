@@ -14,7 +14,7 @@ console.log(
 
 let btn = document.getElementById("btn");
 btn.addEventListener("click", function () {
-  localStorage.clear();
+  //   localStorage.clear();
 });
 
 // Add data
@@ -28,3 +28,17 @@ add_btn.addEventListener("click", function () {
 
 let t = Object.keys(localStorage);
 console.log(t);
+console.log(t[0]);
+console.log(t[1]);
+console.log(t[2]);
+
+console.log("Tổng số lượng các phần tử trong mảng t là: " + t.length);
+
+let container_key = document.querySelector(".container_key");
+for (let i = 0; i < t.length; i++) {
+  // console.log(i);
+  let li = document.createElement("li");
+  li.innerText = t[i];
+  container_key.appendChild(li);
+  //   console.log(t[i]);
+}
