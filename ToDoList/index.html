@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Add Key" id="input_key" />
+    <input type="text" placeholder="Add Value" id="input_value" />
+    <button>Add</button>
+
+    <!-- <div>
+      <b>Key: </b>
+      <span>Value</span>
+    </div>
+    
+    <div>
+      <b>Key: </b>
+      <span>Value</span>
+    </div>
+
+    <div>
+      <b>Key: </b>
+      <span>Value</span>
+    </div> -->
+
+    <script>
+      let input_key = document.querySelector("#input_key");
+      let input_value = document.querySelector("#input_value");
+      let button = document.querySelector("button");
+      // let todoList = [];
+
+      let data = JSON.parse(localStorage.getItem("Todo_List"));
+
+      if (data == null) {
+        localStorage.setItem("Todo_List", JSON.stringify([]));
+        location.reload();
+      }
+      button.addEventListener("click", function () {
+        let newDiv = document.createElement("div");
+
+        // Tạo thẻ b
+        let b = document.createElement("b");
+        b.innerText = input_key.value + ": ";
+        newDiv.appendChild(b);
+
+        // Tạo thẻ span
+        let span = document.createElement("span");
+        span.innerText = input_value.value;
+        newDiv.appendChild(span);
+
+        // newDiv.innerText = input.value;
+        // input.value = "";
+
+        if (input_key.value == "" || input_value.value == "") {
+          if (input_value.value == "") {
+            alert("Bạn thiếu value, bạn nhập lại vào ô value");
+          } else if (input_key.value == "") {
+            alert("Bạn thiếu key, bạn nhập lại vào ô key");
+          }
+        } else if (input_key.value != "" || input_value.value != "") {
+          // Lưu đối tuon
+          data.push({
+            key: input_key.value,
+            value: input_value.value,
+          });
+          //
+          localStorage.setItem("Todo_List", JSON.stringify(data));
+          // localStorage.setItem(input_key.value, input_value.value);
+
+          input_value.value = "";
+          input_key.value = "";
+          document.body.appendChild(newDiv);
+        }
+      });
+
+      // let list1 = {
+      //   key: "Number",
+      //   value: "123",
+      // };
+
+      // let list2 = {
+      //   key: "Letter",
+      //   value: "abc",
+      // };
+
+      // todoList.push(list1);
+      // todoList.push(list2);
+
+      // localStorage.setItem("todoList", JSON.stringify(todoList));
+      // let data = JSON.parse(localStorage.getItem("todoList"));
+      // console.log(data[0]);
+
+      // console.log("Phuong"[0]);
+      // console.log(todoList);
+
+      console.log(data);
+    </script>
+  </body>
+</html>

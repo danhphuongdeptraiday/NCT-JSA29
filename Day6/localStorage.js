@@ -37,6 +37,7 @@ console.log(t[2]);
 console.log("Tổng số lượng các phần tử trong mảng t là: " + t.length);
 
 let container_key = document.querySelector(".container_key");
+document.getElementsByClassName();
 for (let i = 0; i < t.length; i++) {
   // console.log(i);
   let li = document.createElement("li");
