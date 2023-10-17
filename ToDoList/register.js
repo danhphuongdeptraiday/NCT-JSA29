@@ -1,5 +1,6 @@
 let input_username = document.querySelector("#input_username");
 let input_password = document.querySelector("#input_password");
+let input_confirm = document.querySelector("#confirm_password");
 let button = document.querySelector("button");
 // let todoList = [];
 
@@ -11,61 +12,41 @@ if (data == null) {
 }
 
 button.addEventListener("click", function () {
-  // let newDiv = document.createElement("div");
-
-  // // Tạo thẻ b
-  // let b = document.createElement("b");
-  // b.innerText = input_username.value + ": ";
-  // newDiv.appendChild(b);
-
-  // // Tạo thẻ span
-  // let span = document.createElement("span");
-  // span.innerText = input_password.value;
-  // newDiv.appendChild(span);
-
-  // newDiv.innerText = input.value;
-  // input.value = "";
-
-  if (input_username.value == "" || input_password.value == "") {
+  if (
+    input_username.value == "" ||
+    input_password.value == "" ||
+    input_confirm.value == ""
+  ) {
     if (input_password.value == "") {
-      alert("Bạn thiếu value, bạn nhập lại vào ô value");
+      alert("Bạn thiếu user, bạn nhập lại vào ô user");
     } else if (input_username.value == "") {
-      alert("Bạn thiếu key, bạn nhập lại vào ô key");
+      alert("Bạn thiếu password, bạn nhập lại vào ô password");
+    } else if (input_confirm.value == "") {
+      alert("Bạn thiếu confirm password, bạn nhập lại vào ô confirm");
     }
-  } else if (input_username.value != "" || input_password.value != "") {
-    // Lưu đối tượng
-    data.push({
-      username: input_username.value,
-      password: input_password.value,
-    });
-    //
-    localStorage.setItem("User", JSON.stringify(data));
-    // localStorage.setItem(input_username.value, input_password.value);
+  } else if (
+    input_username.value != "" ||
+    input_password.value != "" ||
+    input_confirm.value != ""
+  ) {
+    if (input_password.value == input_confirm.value) {
+      alert("Tạo tài khoản thành công");
+      // Lưu đối tượng
+      data.push({
+        username: input_username.value,
+        password: input_password.value,
+      });
+      //
+      localStorage.setItem("User", JSON.stringify(data));
 
-    input_password.value = "";
-    input_username.value = "";
-    document.body.appendChild(newDiv);
+      input_password.value = "";
+      input_username.value = "";
+      input_confirm.value = "";
+      document.body.appendChild(newDiv);
+    } else {
+      alert("Mật khẩu và mật khẩu xác nhận không giống nhau");
+    }
   }
 });
-
-// let list1 = {
-//   key: "Number",
-//   value: "123",
-// };
-
-// let list2 = {
-//   key: "Letter",
-//   value: "abc",
-// };
-
-// todoList.push(list1);
-// todoList.push(list2);
-
-// localStorage.setItem("todoList", JSON.stringify(todoList));
-// let data = JSON.parse(localStorage.getItem("todoList"));
-// console.log(data[0]);
-
-// console.log("Phuong"[0]);
-// console.log(todoList);
 
 console.log(data);
