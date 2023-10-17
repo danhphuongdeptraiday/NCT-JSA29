@@ -6,28 +6,13 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" placeholder="Add Key" id="input_key" />
-    <input type="text" placeholder="Add Value" id="input_value" />
+    <input type="text" placeholder="Username" id="input_username" />
+    <input type="password" placeholder="Password" id="input_password" />
     <button>Add</button>
 
-    <!-- <div>
-      <b>Key: </b>
-      <span>Value</span>
-    </div>
-    
-    <div>
-      <b>Key: </b>
-      <span>Value</span>
-    </div>
-
-    <div>
-      <b>Key: </b>
-      <span>Value</span>
-    </div> -->
-
     <script>
-      let input_key = document.querySelector("#input_key");
-      let input_value = document.querySelector("#input_value");
+      let input_username = document.querySelector("#input_username");
+      let input_password = document.querySelector("#input_password");
       let button = document.querySelector("button");
       // let todoList = [];
 
@@ -37,40 +22,41 @@
         localStorage.setItem("Todo_List", JSON.stringify([]));
         location.reload();
       }
+
       button.addEventListener("click", function () {
-        let newDiv = document.createElement("div");
+        // let newDiv = document.createElement("div");
 
-        // Tạo thẻ b
-        let b = document.createElement("b");
-        b.innerText = input_key.value + ": ";
-        newDiv.appendChild(b);
+        // // Tạo thẻ b
+        // let b = document.createElement("b");
+        // b.innerText = input_username.value + ": ";
+        // newDiv.appendChild(b);
 
-        // Tạo thẻ span
-        let span = document.createElement("span");
-        span.innerText = input_value.value;
-        newDiv.appendChild(span);
+        // // Tạo thẻ span
+        // let span = document.createElement("span");
+        // span.innerText = input_password.value;
+        // newDiv.appendChild(span);
 
         // newDiv.innerText = input.value;
         // input.value = "";
 
-        if (input_key.value == "" || input_value.value == "") {
-          if (input_value.value == "") {
+        if (input_username.value == "" || input_password.value == "") {
+          if (input_password.value == "") {
             alert("Bạn thiếu value, bạn nhập lại vào ô value");
-          } else if (input_key.value == "") {
+          } else if (input_username.value == "") {
             alert("Bạn thiếu key, bạn nhập lại vào ô key");
           }
-        } else if (input_key.value != "" || input_value.value != "") {
-          // Lưu đối tuon
+        } else if (input_username.value != "" || input_password.value != "") {
+          // Lưu đối tượng
           data.push({
-            key: input_key.value,
-            value: input_value.value,
+            username: input_username.value,
+            password: input_password.value,
           });
           //
           localStorage.setItem("Todo_List", JSON.stringify(data));
-          // localStorage.setItem(input_key.value, input_value.value);
+          // localStorage.setItem(input_username.value, input_password.value);
 
-          input_value.value = "";
-          input_key.value = "";
+          input_password.value = "";
+          input_username.value = "";
           document.body.appendChild(newDiv);
         }
       });
