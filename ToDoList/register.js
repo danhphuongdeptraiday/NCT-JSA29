@@ -11,24 +11,47 @@ if (data == null) {
   location.reload();
 }
 
-button.addEventListener("click", function () {
-  if (
-    input_username.value == "" ||
-    input_password.value == "" ||
-    input_confirm.value == ""
-  ) {
-    if (input_password.value == "") {
-      alert("Bạn thiếu user, bạn nhập lại vào ô user");
-    } else if (input_username.value == "") {
-      alert("Bạn thiếu password, bạn nhập lại vào ô password");
-    } else if (input_confirm.value == "") {
-      alert("Bạn thiếu confirm password, bạn nhập lại vào ô confirm");
+// Check Available
+function checkAvailableUser(input_username, arrayUserLocalStorage) {
+  for (let i = 0; i < arrayUserLocalStorage.length; i++) {
+    if (input_username == arrayUserLocalStorage[i].username) {
+      alert("Tên người dùng đã tồn tại @@@");
+      return false;
     }
-  } else if (
-    input_username.value != "" ||
-    input_password.value != "" ||
-    input_confirm.value != ""
-  ) {
+  }
+
+  return true;
+}
+
+// Tạo hàm để check empty
+function checkInputIsEmpty(input_username, input_password, input_confirm) {
+  if (input_username == "" || input_password == "" || input_confirm == "") {
+    if (input_username == "") {
+      alert("Bạn thiếu user, bạn nhập lại vào ô user");
+      return false;
+    } else if (input_password == "") {
+      alert("Bạn thiếu password, bạn nhập lại vào ô password");
+      return false;
+    } else if (input_confirm == "") {
+      alert("Bạn thiếu confirm password, bạn nhập lại vào ô confirm");
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Event button
+button.addEventListener("click", function () {
+  let checkEmpty = checkInputIsEmpty(
+    input_username.value,
+    input_password.value,
+    input_confirm.value
+  );
+
+  let checkAvailable = checkAvailableUser(input_username.value, data);
+
+  if (checkEmpty == true && checkAvailable == true) {
     if (input_password.value == input_confirm.value) {
       alert("Tạo tài khoản thành công");
       // Lưu đối tượng
